@@ -3,6 +3,8 @@ import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import {ThemeProvider} from "@/components/theme-provider";
 import React from "react";
+import Header from "@/components/header";
+import Sidebar from "@/components/sidebar";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -17,10 +19,17 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
         <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {children}
+            <div className="max-w-[1600px] mx-auto px-12">
+                <Header/>
+                <div className="grid grid-cols-12 gap-4">
+                    <Sidebar/>
+                    {children}
+                </div>
+            </div>
+
         </ThemeProvider>
         </body>
         </html>

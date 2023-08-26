@@ -1,11 +1,12 @@
-import Image from 'next/image'
-import {Button} from "@/components/ui/button";
+"use client"
+import useRequestApi from "@/hooks/useRequestApi";
 
 export default function Home() {
+    // const {data, error} = useRequestApi('/tags', { params: {page: 1} });
+    //     console.log(data)
   return (
-    <main>
-      Hello
-        <Button variant="outline">Click me</Button>
+    <main className="mt-9 col-auto">
+        Home Page
     </main>
   )
 }
